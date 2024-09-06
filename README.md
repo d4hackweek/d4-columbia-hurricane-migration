@@ -80,9 +80,11 @@ Optional: links to manuscripts or technical documents providing background infor
 
 List the specific project goals or research questions you want to answer. Think about what outcomes or deliverables you'd like to create (e.g. a series of tutorial notebooks demonstrating how to work with a dataset, results of an analysis to answer a science question, an example of applying a new analysis method, or a new python package).
 
-* Set up initial predictive model of migration as a results of hurricane wind gusts for demonstration and evaluation purposes
-* Identify a set of relevant indicators of vulnerability
-* Chart pathway for enlarging scope of the project, via proposal and systematic study
+* Build an initial predictive model of migration as a results of hurricane wind gusts for demonstration and evaluation purposes
+* (ideally) Validate model against external data sources on migration (possibly based on feedbacks from other D4 participants)
+<!-- * Identify a set of relevant indicators of vulnerability-->
+* Understanding how a predictive model of migration may support decision-makers. Producing output/tool whose effectiveness may be evaluated by decision-makers
+<!--* Chart pathway for enlarging scope of the project, via proposal and systematic study-->
 
 ### Tasks
 
