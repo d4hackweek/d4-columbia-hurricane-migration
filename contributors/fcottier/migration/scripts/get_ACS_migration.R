@@ -20,8 +20,8 @@ library(mapdeck)
 #   https://walker-data.com/tidycensus/articles/other-datasets.html
 
 ## census API and mapdeck keys 
-census_api_key("8c27fe8ef7271e1999f37806659da0c9d17e5755")
-mapdeck(token = "pk.eyJ1IjoiZmNvdHRpZXIiLCJhIjoiY2x5c3N0ZXM5MG5vYjJpb2c0MXc2YmNibiJ9.ZKsNGWDF7aYjK0fnLD57sQ")
+source("../api keys/keys.R")
+
 
 ## functions
 get_acsMigrationNY <- function(year, geometry = FALSE){

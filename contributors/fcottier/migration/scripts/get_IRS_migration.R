@@ -11,8 +11,7 @@ library(tictoc)
 library(mapdeck)
 
 ## census API and mapdeck keys 
-mapdeck(token = "pk.eyJ1IjoiZmNvdHRpZXIiLCJhIjoiY2x5c3N0ZXM5MG5vYjJpb2c0MXc2YmNibiJ9.ZKsNGWDF7aYjK0fnLD57sQ")
-
+source("../api keys/keys.R")
 
 # extract IRS data
 
