@@ -34,7 +34,6 @@ This template provides the following suggested organizaiton structure for the pr
 
 *Provide a brief introduction describing the proposed work. Be sure to also describe what skills team members will get to learn and practice as part of this project.*
 
-*(courtesy of GitHub copilot with a little adjustment. Yes, I am lazy!)*<br>
 This project investigates the impact of flooding and hurricanes on migration patterns in the US, utilizing migration data from the Internal Revenue Services and American Community Survey. It aims to understand how socio-economic status influences migration as a result of the impact of storm surge and wind gusts induced by hurricanes, employing advanced modeling techniques including Bayesian hierarchical models and machine learning.  It also explores how early warning systems can be leveraged to reduce risks and inform adaptation strategies, providing decision-makers with long-term damage estimates to highlight the cost of inaction.
 
 
