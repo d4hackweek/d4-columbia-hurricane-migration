@@ -1,11 +1,9 @@
-# Sample Project
+# D4 Columbia Hurricane Migration 
 
-This is an example of how teams can structure their project repositories and format their project README.md file.
-
-When creating a project repository from this template choose "Public" so other participants can follow progress. Add a "topic" to your repository details (click on the gear icon next to the "About" section on the repository page) to help others find your work (e.g. `icesat2-hackweek-2024`).
+Welcome, this is the folder repository for the D4 Hack Columbia-Hurricane-Migration team
 
 
-## Files and folders in your project repository
+## Repository structure
 
 This template provides the following suggested organizaiton structure for the project repository, but each project team is free to organize their repository as they see fit.
 
@@ -24,15 +22,20 @@ This template provides the following suggested organizaiton structure for the pr
 * `model-card.md`
 <br> Description (following a metadata standard) of any machine learning models used in the project
 
+<!--
 # Recommended content for your README.md file:
 
 (you can remove the content here and above from your final project README.md file so that it begins with the Project or Team Name title below)
+-->
 
 # Project or Team Name
 
-## Project Title and Introduction
+## Modeling impacts on hurricane wind gusts and storm surge on migration in the US
 
-Provide a brief introduction describing the proposed work. Be sure to also decribe what skills team members will get to learn and practice as part of this project.
+*Provide a brief introduction describing the proposed work. Be sure to also describe what skills team members will get to learn and practice as part of this project.*
+
+This project investigates the impact of flooding and hurricanes on migration patterns in the US, utilizing migration data from the Internal Revenue Services and American Community Survey. It aims to understand how socio-economic status influences migration as a result of the impact of storm surge and wind gusts induced by hurricanes, employing advanced modeling techniques including Bayesian hierarchical models and machine learning.  It also explores how early warning systems can be leveraged to reduce risks and inform adaptation strategies, providing decision-makers with long-term damage estimates to highlight the cost of inaction.
+
 
 ### Collaborators
 
@@ -40,12 +43,11 @@ List all participants on the project. Here is a good space to share your persona
 
 | Name | Personal goals | Can help with | Role |
 | ------------- | ------------- | ------------- | ------------- |
-| Katherine J. | I want to learn specific python libraries for working with these data  | I can help with understanding our dataset, programming in R  | Project Lead |
-| Rosalind F. | Practice leading a software project | machine learning and python (scipy, scikit-learn) | Project Lead |
-| Alan T. | learning about your dataset | GitHub, Jupyter, cloud computing | Project Helper |
-| Rachel C. | learn to use github, resolve merge conflicts | I am familiar with our dataset | Team Member  |
-| ... | ... | ... | ... |
-| ... | ... | ... | ... |
+| Fabien Cottier | Eager to learn more about predictive modeling, including machine learning and Bayesian hierarchical models | Theory, migration data, R, Python | Project Lead |
+| Andrew Kruczkiewicz | learning about your dataset | GitHub, Jupyter, cloud computing |  Team Member |
+| Mona Hemmati | Practice leading a software project | machine learning and python (scipy, scikit-learn) |  Team Member |
+| Kytt MacManus | Improve skills with GeoAI, new ideas on DSS development, network | Python, Jupyter, Data Wrangling, Gridded Data | Team Member  |
+
 
 ### The problem
 
@@ -75,11 +77,13 @@ Optional: links to manuscripts or technical documents providing background infor
 
 ### Project goals
 
-List the specific project goals or research questions you want to answer. Think about what outcomes or deliverables you'd like to create (e.g. a series of tutorial notebooks demonstrating how to work with a dataset, results of an anaysis to answer a science question, an example of applying a new analysis method, or a new python package).
+List the specific project goals or research questions you want to answer. Think about what outcomes or deliverables you'd like to create (e.g. a series of tutorial notebooks demonstrating how to work with a dataset, results of an analysis to answer a science question, an example of applying a new analysis method, or a new python package).
 
-* Goal 1
-* Goal 2
-* ...
+* Build an initial predictive model of migration as a results of hurricane wind gusts for demonstration and evaluation purposes
+* (ideally) Validate model against external data sources on migration (possibly based on feedbacks from other D4 participants)
+<!-- * Identify a set of relevant indicators of vulnerability-->
+* Understanding how a predictive model of migration may support decision-makers. Producing output/tool whose effectiveness may be evaluated by decision-makers
+<!--* Chart pathway for enlarging scope of the project, via proposal and systematic study-->
 
 ### Tasks
 

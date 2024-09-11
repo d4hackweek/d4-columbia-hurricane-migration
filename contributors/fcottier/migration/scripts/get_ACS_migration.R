@@ -20,7 +20,7 @@ library(mapdeck)
 #   https://walker-data.com/tidycensus/articles/other-datasets.html
 
 ## census API and mapdeck keys 
-source("../api keys/keys.R")
+source("../api_keys/keys.R")
 
 
 ## functions
