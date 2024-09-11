@@ -7,6 +7,8 @@ library(glue)
 ## fpath
 fpath_migration <- "contributors/fcottier/migration"
 fpath_hurricane <- "contributors/mhemmati/Storm_Analysis_Results"
+fpath_vuln_data <- "contributors/fcottier/social vulnerability"
+
 
 # load data
 counties <- readr::read_csv(glue("{fpath_migration}/processedData/counties_200km.csv"))
@@ -14,6 +16,7 @@ wind <- readr::read_csv(glue("{fpath_hurricane}/wind.csv"))
 resLoss <- readr::read_csv(glue("{fpath_hurricane}/resLoss.csv"))
 empLoss <- readr::read_csv(glue("{fpath_hurricane}/empLoss.csv"))
 irs <- readr::read_csv(glue("{fpath_migration}/processedData/irs_migration_joint.csv"))
+sv_data <- readr::read_csv(glue("{fpath_vuln_data}/US_dec_2000.csv")) 
 
 # keep only Texas, Louisiana, Mississippi, Alabama, Florida
 counties <- counties %>% 
