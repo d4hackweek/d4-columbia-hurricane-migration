@@ -25,19 +25,43 @@ irs <- irs %>%
   dplyr::filter(y1_countyfips!=y2_countyfips) #remove stayers
 
 
-## sum by sending county
+## out-migration / sum by sending county
 irs_out <- irs %>%
   dplyr::group_by(y1_statefips, y1_countyfips, year) %>%
   dplyr::summarize(
-    nMigr = sum(n1, na.rm = T),
-    nMigr_wExempt = sum(n1 + n2, na.rm = T)
+    nOutMigr = sum(n1, na.rm = T),
+    nOutMigr_wExempt = sum(n1 + n2, na.rm = T)
   ) %>%
   dplyr::mutate(
-    origin = paste0(y1_statefips, y1_countyfips),
+    GEOID = paste0(y1_statefips, y1_countyfips),
   ) %>%
   dplyr::ungroup() %>%
-  dplyr::select(origin, year, nMigr, nMigr_wExempt) %>%
-  dplyr::arrange(origin, year)
+  dplyr::select(GEOID, year, nOutMigr, nOutMigr_wExempt) %>%
+  dplyr::arrange(GEOID, year)
+
+# sum by destination county
+irs_in <- irs %>%
+  dplyr::group_by(y2_statefips, y2_countyfips, year) %>%
+  dplyr::summarize(
+    nInMigr = sum(n1, na.rm = T),
+    nInMigr_wExempt = sum(n1 + n2, na.rm = T)
+  ) %>%
+  dplyr::mutate(
+    GEOID = paste0(y2_statefips, y2_countyfips),
+  ) %>%
+  dplyr::ungroup() %>%
+  dplyr::select(GEOID, year, nInMigr, nInMigr_wExempt) %>%
+  dplyr::arrange(GEOID, year)
+
+# net migration
+irs_ready <- irs_in %>%
+  dplyr::left_join(irs_out) %>%
+  dplyr::mutate(
+    netMigr = nInMigr - nOutMigr,
+    netMigr_wExempt  = nInMigr_wExempt - nOutMigr_wExempt
+  ) %>%
+  dplyr::select(GEOID, year, nInMigr, nInMigr_wExempt, nOutMigr, nOutMigr_wExempt, netMigr, netMigr_wExempt) %>%
+  dplyr::arrange(GEOID, year)
 
 
 
@@ -53,22 +77,46 @@ irs_old <- irs_old %>%
 irs_old_out <- irs_old %>%
   dplyr::group_by(origin, year = as.integer(year)) %>%
   dplyr::summarize(
-    nMigr = sum(nMigr, na.rm = T)
+    nOutMigr = sum(nMigr, na.rm = T)
   ) %>%
   dplyr::ungroup() %>%
-  dplyr::select(origin, year, nMigr) %>%
-  dplyr::arrange(origin, year)
+  dplyr::rename("GEOID" = "origin")  %>%
+  dplyr::select(GEOID, year, nOutMigr) %>%
+  dplyr::arrange(GEOID, year)
+
+## sum by destination county
+irs_old_in <- irs_old %>%
+  dplyr::group_by(destination, year = as.integer(year)) %>%
+  dplyr::summarize(
+    nInMigr = sum(nMigr, na.rm = T)
+  ) %>%
+  dplyr::ungroup() %>%
+  dplyr::rename("GEOID" = "destination")  %>%
+  dplyr::select(GEOID, year, nInMigr) %>%
+  dplyr::arrange(GEOID, year)
+
+## net migration
+irs_old_ready <- irs_old_in %>%
+  dplyr::left_join(irs_old_out) %>%
+  dplyr::mutate(
+    netMigr = nInMigr - nOutMigr
+  ) %>%
+  dplyr::select(GEOID, year, nInMigr, nOutMigr, netMigr) %>%
+  dplyr::arrange(GEOID, year)
 
 
 # combine both irs dataset
-irs_joint <- dplyr::bind_rows(irs_old_out, dplyr::select(irs_out, -nMigr_wExempt)) %>%
+irs_joint <- dplyr::bind_rows(
+  irs_old_ready,
+  dplyr::select(irs_ready, -contains("_wExempt"))
+) %>%
   dplyr::mutate(
     year = as.integer(year)
   ) %>%
-  dplyr::arrange(origin, year)
+  dplyr::arrange(GEOID, year)
 
 
 # export data
 readr::write_csv(irs_joint, file = "contributors/fcottier/migration/processedData/irs_migration_joint.csv")
-readr::write_csv(irs_out, file = "contributors/fcottier/migration/processedData/irs_migration_2011_2021.csv")
-readr::write_csv(irs_old_out, file = "contributors/fcottier/migration/processedData/irs_migration_1990_2010.csv")
+readr::write_csv(irs_ready, file = "contributors/fcottier/migration/processedData/irs_migration_2011_2021.csv")
+readr::write_csv(irs_old_ready, file = "contributors/fcottier/migration/processedData/irs_migration_1990_2010.csv")
