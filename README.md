@@ -46,7 +46,7 @@ List all participants on the project. Here is a good space to share your persona
 | Fabien Cottier | Eager to learn more about predictive modeling, including machine learning and Bayesian hierarchical models | Theory, migration data, R, Python | Project Lead |
 | Andrew Kruczkiewicz | learning about your dataset | GitHub, Jupyter, cloud computing |  Team Member |
 | Mona Hemmati | Practice leading a software project | machine learning and python (scipy, scikit-learn) |  Team Member |
-| Kytt McManus | learn to use github, resolve merge conflicts | I am familiar with our dataset | Team Member  |
+| Kytt MacManus | Improve skills with GeoAI, new ideas on DSS development, network | Python, Jupyter, Data Wrangling, Gridded Data | Team Member  |
 
 
 ### The problem
