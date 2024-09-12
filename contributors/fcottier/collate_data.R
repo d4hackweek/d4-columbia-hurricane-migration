@@ -59,7 +59,7 @@ empLoss <- empLoss %>%
 
 # clean Kytt data
 sv_gridded_subset <- sv_gridded %>%
-  dplyr::select(FIPSTCO, SVI_2010, TP2000L05:TP2000L10, INLECZ)
+  dplyr::select(FIPSTCO, SVI_2000, TP2000L05:TP2000L10, INLECZ)
 
 # combine data
 
